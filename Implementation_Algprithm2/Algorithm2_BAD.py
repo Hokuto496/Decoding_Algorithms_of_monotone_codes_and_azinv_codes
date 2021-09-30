@@ -1,10 +1,15 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 import numpy as np
 
+"""
+Here n is the codeword length and y is the noisy codeword.
+In addition, a and m are the parameters of the azinv code.
+We determine the insertion position and the alphabet to be inserted 
+according to the result of the comparison of 
+the value of the function remainder and the value of the function weight.
+"""
 
-#元の符号語とのズレ
+#Compute how much it differs from the original codeword
+
 def azby_inverse(y):
     if len(y)%2==0:
         a=np.hstack((y[::2],y[::-2]))
@@ -22,7 +27,8 @@ def remainder(a,n,m,y,k=0):
     return (a-inversion_number(azby_inverse(y)))%m
 
 
-#ズレの大きさの基準値
+#Compute a basis for determining how much it differs from the original codeword
+
 def evenflipped(y):
     return y^np.arange(len(y))%2
 
@@ -30,7 +36,7 @@ def weight(y,k=0):
     a=evenflipped(y)
     return np.sum(a)
 
-#挿入位置その１
+#Insertion position 1
 def position1(y,r,k=0):
     arr=np.array(evenflipped(y))
     pos=np.count_nonzero(arr==1)
@@ -41,7 +47,8 @@ def position1(y,r,k=0):
         if pos==r:
             return i
 
-#挿入位置その２
+#Insertion position 2
+
 def flipped(b):
     if b==0:
         return 1
@@ -59,25 +66,25 @@ def position2(y,r,k=0):
         if pos==const:
             return i
 
-#挿入文字その１
+#Insertion alphabets 1
 def deleted_seq1(p):
     if p%2==0:
         return [0,1]
     else:
         return [1,0]
 
-#挿入文字その２
+#Insertion alphabets 1
 def deleted_seq2(p):
     if p%2==0:
         return [1,0]
     else:
         return [0,1]
 
-#系列yのp番目にbを挿入する写像
+#Function to insert b at the p-th position of the series y
 def ins(y,p,b):
     return np.insert(y,p,b)
 
-#アルゴリズム２のBAD誤り訂正をする部分
+#Decode for deletion for BAD
 def dec_BAD(a,n,m,y,k=0):
     r=remainder(a,n,m,y)
     w=weight(y)
@@ -90,12 +97,10 @@ def dec_BAD(a,n,m,y,k=0):
     return ins(y,p,b)
 
 """
-符号語の長さn=5，整数a=0，1以上の整数m=5，系列y=011
-このときのAzinv符号A_{a,m}(n)={01000,01010,01011,01111,10110,10001}の元01011
-に復号されるか確認する．
+Length of the code word n=5, integers a=0 and m=5, and series y=011.
+Check if y can be decoded into the element 01011 of the azinv code
+A_{a,m}(n)={01000,01010,01011,01111,10110,10001} in this case.
 """
+
+#011011
 dec_BAD(0,5,5,[0,1,1])
-
-
-
-
