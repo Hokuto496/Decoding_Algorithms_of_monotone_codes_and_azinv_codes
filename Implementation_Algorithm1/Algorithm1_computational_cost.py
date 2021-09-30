@@ -98,7 +98,7 @@ def dec_alg1(a,n,m,y,k):
     else:
         return 'failure'
 
-#Source code to plot the graph 
+#Source code to plot the graph in dec_time_del.jpg
 
 x=np.arange(10000)+1
 y=[(timeit.timeit(lambda: dec_alg1(0,n+1,n+2,random.choices([0,1],k=n),np.arange(n+1)+1), number=3)/3) for n in x]
@@ -108,7 +108,7 @@ plt.ylabel('Running time (seconds)')
 plt.xlabel('Code-length')
 plt.show()
 
-#Source code to plot the graph 
+#Source code to plot the graph in dec_time_sub.jpg
 
 x=np.arange(10000)+1
 y=[(timeit.timeit(lambda: dec_alg1(0,n,2*n,random.choices([0,1],k=n),np.arange(n+1)+1), number=3)/3) for n in x]
