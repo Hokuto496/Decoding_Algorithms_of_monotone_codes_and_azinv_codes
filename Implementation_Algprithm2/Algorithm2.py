@@ -105,7 +105,6 @@ def dec_BAS(a,n,m,y,k=0):
             return Substituted(p,y)
         
 #Algorithm 2
-
 def dec_alg2(a,n,m,y,k=0):
     if len(y)==n:
         return dec_BAS(a,n,m,y,k)
