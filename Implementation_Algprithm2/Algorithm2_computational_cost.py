@@ -104,6 +104,7 @@ def dec_BAS(a,n,m,y,k=0):
             return Substituted(p,y)
         
 #Algorithm 2
+
 def dec_alg2(a,n,m,y,k=0):
     if len(y)==n:
         return dec_BAS(a,n,m,y,k)
@@ -112,7 +113,7 @@ def dec_alg2(a,n,m,y,k=0):
     else:
         return 'failure'
 
-
+#Source code to plot the graph in dec_time_BAD.jpg
 x=np.arange(10000)+2
 y=[(timeit.timeit(lambda: dec_alg2(0,n+2,n+2,random.choices([0,1],k=n)), number=3)/3) for n in x]
 plt.plot(x,y, '.')
@@ -121,6 +122,7 @@ plt.ylabel('Running time (seconds)')
 plt.xlabel('Code-length')
 plt.show()
 
+#Source code to plot the graph in dec_time_BAS.jpg
 x=np.arange(10000)+2
 y=[(timeit.timeit(lambda: dec_alg2(0,n,2*(n-1),random.choices([0,1],k=n)), number=3)/3) for n in x]
 plt.plot(x,y, '.')
