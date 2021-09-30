@@ -1,64 +1,29 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import numpy as np
-
-
-# In[2]:
-
 
 get_ipython().run_line_magic('matplotlib', 'inline')
 
-
-# In[3]:
-
-
 import matplotlib.pyplot as plt
-
-
-# In[4]:
-
 
 import random
 
-
-# In[5]:
-
-
 import timeit
-
-
-# In[6]:
-
 
 def remainder(a,n,m,y,k):
     
     return (a-np.dot(k[:len(y)],y))%m
 
-
-# In[7]:
-
-
 def weight(y,k):
     return np.dot(np.diff(k,n=1)[:len(y)],y)
-
-
-# In[8]:
-
 
 def flipped(n):
     if n==0:
         return 1
     elif n==1:
         return 0
-
-
-# In[9]:
-
-
+    
 def position1(y,r,k):
     pos=0
     if pos==r:
@@ -67,11 +32,7 @@ def position1(y,r,k):
         pos+=y[i]*(k[i+1]-k[i])
         if pos==r:
             return i
-
-
-# In[10]:
-
-
+        
 def position2(y,r,k):
     pos=0
     const=r-weight(y,k)-k[0]
@@ -82,30 +43,15 @@ def position2(y,r,k):
         if pos==const:
             return i+1
 
-
-# In[11]:
-
-
 def deleted_seq1(p):
     return 0
-
-
-# In[12]:
-
 
 def deleted_seq2(p):
     return 1
 
 
-# In[13]:
-
-
 def I(p,b,y):
     return np.insert(y,p,b)
-
-
-# In[14]:
-
 
 def dec_del(a,n,m,y,k):
     r=remainder(a,n,m,y,k)
@@ -122,40 +68,16 @@ def dec_del(a,n,m,y,k):
         b=deleted_seq2(p)
     return I(p,b,y)
 
-
-# In[18]:
-
-
-dec_del(0,4,9,[1,0,1],[1,3,6,8])
-
-
-# In[25]:
-
-
-dec_del(0,4,9,[0,1,0],[1,3,6,8])
-
-
-# In[15]:
-
-
 def position(r,n,m,y,k):
     const=min([r,m-r])
     for i in np.arange(len(y)):
         if k[i]==const:
             return i
 
-
-# In[16]:
-
-
-def Reversed(p,y):
+def Substituted(p,y):
      return np.insert(np.zeros(len(y)-1,dtype="int32"),p,1)^y
 
-
-# In[17]:
-
-
-def dec_rev(a,n,m,y,k):
+def dec_sub(a,n,m,y,k):
     r=remainder(a,n,m,y,k)
     if r==0:
         return np.array(y)
@@ -164,22 +86,16 @@ def dec_rev(a,n,m,y,k):
         if p==None:
             return 'failure'
         else:
-            return Reversed(p,y)
-
-
-# In[18]:
-
+            return Substituted(p,y)
 
 def dec_alg1(a,n,m,y,k):
     if len(y)==n:
-        return dec_rev(a,n,m,y,k)
+        return dec_sub(a,n,m,y,k)
     elif len(y)==n-1:
         return dec_del(a,n,m,y,k)
     else:
         return 'failure'
 
-
-# In[66]:
 
 
 x=np.arange(10000)+1
