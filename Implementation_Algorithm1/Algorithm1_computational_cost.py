@@ -88,8 +88,8 @@ def dec_sub(a,n,m,y,k):
             return 'failure'
         else:
             return Substituted(p,y)
-#Algorithm 1
         
+#Algorithm 1
 def dec_alg1(a,n,m,y,k):
     if len(y)==n:
         return dec_sub(a,n,m,y,k)
@@ -99,7 +99,6 @@ def dec_alg1(a,n,m,y,k):
         return 'failure'
 
 #Source code to plot the graph in dec_time_del.jpg
-
 x=np.arange(10000)+1
 y=[(timeit.timeit(lambda: dec_alg1(0,n+1,n+2,random.choices([0,1],k=n),np.arange(n+1)+1), number=3)/3) for n in x]
 plt.plot(x,y, '.')
@@ -109,7 +108,6 @@ plt.xlabel('Code-length')
 plt.show()
 
 #Source code to plot the graph in dec_time_sub.jpg
-
 x=np.arange(10000)+1
 y=[(timeit.timeit(lambda: dec_alg1(0,n,2*n,random.choices([0,1],k=n),np.arange(n+1)+1), number=3)/3) for n in x]
 plt.plot(x,y, '.')
