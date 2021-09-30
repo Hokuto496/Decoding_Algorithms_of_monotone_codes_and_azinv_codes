@@ -84,7 +84,7 @@ def deleted_seq2(p):
 def ins(y,p,b):
     return np.insert(y,p,b)
 
-#Decode for deletion for BAD
+#Decode for BAD
 def dec_BAD(a,n,m,y,k=0):
     r=remainder(a,n,m,y)
     w=weight(y)
