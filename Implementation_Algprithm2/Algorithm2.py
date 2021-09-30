@@ -1,15 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
-
 import numpy as np
 
-get_ipython().run_line_magic('matplotlib', 'inline')
-
-import matplotlib.pyplot as plt
-
-import random
-
-import timeit
+#Algortim 2 for BAD
 
 def azby_inverse(y):
     if len(y)%2==0:
@@ -92,10 +83,10 @@ def dec_BAD(a,n,m,y,k=0):
         b=deleted_seq2(p)
     return I(y,p,b)
 
+#Algorithm for BAS
 
 def position(r,n,m,y,k=0):
     return len(y)-min([r,m-r])
-
 
 def Substituted(p,y):
     return np.insert(np.zeros(len(y)-2,dtype="int32"),p-1,[1,1])^y
@@ -112,6 +103,8 @@ def dec_BAS(a,n,m,y,k=0):
             return 'failure'
         else:
             return Substituted(p,y)
+        
+#Algorithm 2
 
 def dec_alg2(a,n,m,y,k=0):
     if len(y)==n:
