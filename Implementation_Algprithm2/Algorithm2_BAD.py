@@ -73,7 +73,7 @@ def deleted_seq1(p):
     else:
         return [1,0]
 
-#Insertion alphabets 1
+#Insertion alphabets 2
 def deleted_seq2(p):
     if p%2==0:
         return [1,0]
