@@ -35,7 +35,7 @@ def dec_sub(a,n,m,y,k):
 
 """
 Length of the code word n=6, integers a=1 and m=20, 
-sequence k=(1,2,3,8,9,10), and series y=0111.
+sequence k=(1,2,3,8,9,10), and series y=110000.
 Check if y can be decoded into the element 100000 of the monotone code
 M_{a,m,k}(n)={100000,110101,101110,010011,001101} in this case.
 """ 
