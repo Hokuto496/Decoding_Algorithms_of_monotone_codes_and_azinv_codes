@@ -26,7 +26,7 @@ def position1(r,y,k):
         if pos==r:
             return i
         
-#bit flip
+#Bit flip
 def flipped(n):
     if n==0:
         return 1
@@ -56,7 +56,7 @@ def deleted_seq2(p):
 def ins(p,b,y):
     return np.insert(y,p,b)
 
-#decode for deletion
+#Decode for deletion
 def dec_del(a,n,m,y,k):
     r=remainder(a,n,m,y,k)
     w=weight(y,k)
@@ -73,7 +73,7 @@ def dec_del(a,n,m,y,k):
     return ins(p,b,y)
 
 """
-Length of the code word n=5, integer a=2, integer m=9 greater than or equal to 1, 
+Length of the code word n=5, integer a=2 and m=9, 
 sequence k=(1,2,3,6,8), series y=0111.
 Check if y can be decoded into the element 01110 of the monotone code
 M_{a,m,k}(n)={01000,11001,01110,00101,11111} in this case.
