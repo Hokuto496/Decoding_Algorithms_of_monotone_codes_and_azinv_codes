@@ -73,8 +73,8 @@ def dec_del(a,n,m,y,k):
     return ins(p,b,y)
 
 """
-Length of the code word n=5, integer a=2 and m=9, 
-sequence k=(1,2,3,6,8), series y=0111.
+Length of the code word n=5, integers a=2 and m=9, 
+sequence k=(1,2,3,6,8), and series y=0111.
 Check if y can be decoded into the element 01110 of the monotone code
 M_{a,m,k}(n)={01000,11001,01110,00101,11111} in this case.
 """
