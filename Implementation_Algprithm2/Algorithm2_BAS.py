@@ -24,11 +24,16 @@ def Substituted(p,y):
 
 def dec_BAS(a,n,m,y,k=0):
     r=remainder(a,n,m,y)
-    if r==0:
+    if (np.all(y==np.ones(len(y))))|(np.all(y==np.zeros(len(y)))):
+        return 'failure'
+    elif r==0:
         return np.array(y)
     else:
         p= position(r,n,m,y)
-        return Substituted(p,y)
+        if p==None:
+            return 'failure'
+        else:
+            return Substituted(p,y)
 
     
 dec_BAS(0,6,10,[0,1,0,1,1,1])
