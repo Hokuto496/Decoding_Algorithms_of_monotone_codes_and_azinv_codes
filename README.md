@@ -10,9 +10,9 @@ We clarify our implement environment: Python runs over the code editor ''Jupyter
 and over a laptop computer with the 2.3GHz dual-core Intel Core i5 CPU, the 4GB of  RAM, and Windows 10 OS.
 The size of a problem instance is indicated by the code length.
 The graphs report running time results in seconds.
-The computational cost graph of Algorithm 1 for deletion is in the dec_time_del.jpg file. 
-The computational cost graph of Algorithm 1 for substitution is in the dec_time_sub.jpg file. 
-The computational cost graph of Algorithm 2 for BAD is in the dec_time_BAD.jpg file. 
-The computational cost graph of Algorithm 2 for BAS is in the dec_time_BAS.jpg file.
+The computational cost graph of Algorithm 1 for deletion is in the dec_time_del.jpg. 
+The computational cost graph of Algorithm 1 for substitution is in the dec_time_sub.jpg. 
+The computational cost graph of Algorithm 2 for BAD is in the dec_time_BAD.jpg. 
+The computational cost graph of Algorithm 2 for BAS is in the dec_time_BAS.jpg.
 
 
